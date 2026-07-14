@@ -4,39 +4,66 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-A personal portfolio website for the Nexsoft Solutions internship program. This is a static site (HTML/CSS/JS) — no build tooling or framework yet. The project is in its initial state with only a README and requirements document.
+Personal portfolio website for **Sheikh Mohammad Ahmed** — a Nexsoft Solutions internship task. Vanilla static site (HTML/CSS/JS), no build tools or frameworks.
 
-## Requirements (from docs/requirements.md)
+**Site:** Single-page responsive portfolio  
+**Deploy target:** Vercel or Netlify (zero-config static hosting)  
+**Theme:** Dark/Light toggle
 
-- Responsive homepage design
-- About, Skills, Projects, and Contact sections
-- Responsive navbar and footer
-- Social media links and resume download button
-- Deploy on Vercel or Netlify
+## Content Source
 
-## Architecture
+All profile content is documented in detail:
 
-As this is a greenfield project with no existing code, expect the following structure once built:
+- **`docs/user-profile.md`** — Full profile: experience, projects, skills, education, socials, client work
+- **Permanent memory** (auto-loaded for Claude) — `user-profile` and `portfolio-website` memories under `.claude/memory/`
 
-- **index.html** — Single-page portfolio with all sections
-- **css/** — Stylesheets (main styles, responsive breakpoints)
-- **js/** — Client-side interactivity (smooth scroll, form handling, animations)
-- **assets/** — Images, icons, resume PDF
-- **docs/** — Project documentation and requirements
+Key facts: Sheikh Mohammad Ahmed — Web Developer & AI Builder | Co-Founder @ Aplinode | Full Stack Developer Intern @ Nexsoft | Former Co-Founder & CEO @ Markaaf Studio, Former Co-Founder & CTO @ Turbo Services | Hackathon Winner (1200+ participants)
 
-No framework or bundler is currently configured. Keep the site lightweight and dependency-free unless a specific need (like a static site generator) arises. Vanilla HTML/CSS/JS is the expectation.
+## Sections to Build
+
+- **Navbar** — Responsive, collapsible on mobile
+- **Hero** — Name, title, tagline, CTA buttons
+- **About** — Bio summary from profile
+- **Skills** — Tech stack grid: HTML, CSS, JS, Bootstrap, Tailwind, React, Next.js, TypeScript, Node.js, Python, Firebase, Supabase, OpenAI Agents SDK, Claude Code, n8n, Git, Figma, Vercel, Netlify
+- **Experience** — Timeline of roles (Aplinode, Nexsoft, Turbo Services, Markaaf Studio)
+- **Projects** — Hackathons (Helplytics AI, Maintain-IQ, Roberto-Web), Company websites (Aplinode, Markaaf Studio, Turbo Services), Client works (Sai Sapata, Hamida Khokhar, Al Suffah Academy, Lodhi Academy, Molana Qari Abad, Trendz Automotives)
+- **Contact** — Social links (GitHub, LinkedIn, X/Twitter, Facebook, Email) + resume download
+- **Footer** — Copyright, quick links
+- **Theme toggle** — Dark/Light mode switcher
 
 ## Development
 
-Since this is a static site with no build step:
+Static site — no build step required:
 
-- Open `index.html` directly in a browser for local development
-- Use a simple HTTP server for testing (e.g., `python -m http.server 8000` or `npx serve .`)
+```bash
+# Local server (pick one)
+npx serve .
+python -m http.server 8000
+```
+
+## Project Structure (Expected)
+
+```
+/
+├── index.html          # Single-page portfolio
+├── css/
+│   └── style.css       # Main styles + dark/light theme variables
+├── js/
+│   └── main.js         # Theme toggle, smooth scroll, interactivity
+├── assets/
+│   ├── images/         # Profile photo, project screenshots, icons
+│   └── resume.pdf      # Downloadable resume
+└── docs/               # Requirements, profile, references
+```
+
+## Design Decisions
+
+- **Vanilla only** — No frameworks, no bundlers, no npm. Keep dependency-free.
+- **CSS custom properties** for theming (dark/light toggle)
+- **Flexbox/Grid** for responsive layout
+- **Mobile-first** responsive approach
+- Font Awesome or plain SVG icons for social links
 
 ## Deployment
 
-The requirements specify deployment to Vercel or Netlify. Both support static sites with zero configuration — just point at the git repository.
-
-## Key Decisions to Track
-
-- **No framework chosen yet** — the project currently has zero dependencies. If a framework is added, update this file with the build commands.
+Vercel or Netlify. Both auto-detect static sites — connect repo, it just works.
