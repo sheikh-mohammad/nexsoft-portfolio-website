@@ -19,18 +19,6 @@ All profile content is documented in detail:
 
 Key facts: Sheikh Mohammad Ahmed — Web Developer & AI Builder | Co-Founder @ Aplinode | Full Stack Developer Intern @ Nexsoft | Former Co-Founder & CEO @ Markaaf Studio, Former Co-Founder & CTO @ Turbo Services | Hackathon Winner (1200+ participants)
 
-## Sections to Build
-
-- **Navbar** — Responsive, collapsible on mobile
-- **Hero** — Name, title, tagline, CTA buttons
-- **About** — Bio summary from profile
-- **Skills** — Tech stack grid: HTML, CSS, JS, Bootstrap, Tailwind, React, Next.js, TypeScript, Node.js, Python, Firebase, Supabase, OpenAI Agents SDK, Claude Code, n8n, Git, Figma, Vercel, Netlify
-- **Experience** — Timeline of roles (Aplinode, Nexsoft, Turbo Services, Markaaf Studio)
-- **Projects** — Hackathons (Helplytics AI, Maintain-IQ, Roberto-Web), Company websites (Aplinode, Markaaf Studio, Turbo Services), Client works (Sai Sapata, Hamida Khokhar, Al Suffah Academy, Lodhi Academy, Molana Qari Abad, Trendz Automotives)
-- **Contact** — Social links (GitHub, LinkedIn, X/Twitter, Facebook, Email) + resume download
-- **Footer** — Copyright, quick links
-- **Theme toggle** — Dark/Light mode switcher
-
 ## Development
 
 Static site — no build step required:
@@ -41,29 +29,42 @@ npx serve .
 python -m http.server 8000
 ```
 
-## Project Structure (Expected)
+## Project Structure
 
 ```
 /
-├── index.html          # Single-page portfolio
+├── index.html          # Single-page portfolio (all sections)
 ├── css/
-│   └── style.css       # Main styles + dark/light theme variables
+│   └── style.css       # 1000+ lines — dark/light themes via CSS custom properties,
+│                       #   glassmorphism, gradients, responsive breakpoints, animations
 ├── js/
-│   └── main.js         # Theme toggle, smooth scroll, interactivity
-├── assets/
-│   ├── images/         # Profile photo, project screenshots, icons
-│   └── resume.pdf      # Downloadable resume
-└── docs/               # Requirements, profile, references
+│   └── main.js         # Theme toggle, mobile nav, cursor effects, scroll animations,
+│                       #   project filtering, contact form, back-to-top, parallax
+├── docs/               # Requirements, profile doc, resume PDFs
+└── README.md
 ```
 
-## Design Decisions
+**No `assets/` directory** — profile image is loaded directly from GitHub avatars CDN. No local images or icons needed (Font Awesome CDN for icons).
 
-- **Vanilla only** — No frameworks, no bundlers, no npm. Keep dependency-free.
-- **CSS custom properties** for theming (dark/light toggle)
-- **Flexbox/Grid** for responsive layout
-- **Mobile-first** responsive approach
-- Font Awesome or plain SVG icons for social links
+## Design System
+
+- **CSS Custom Properties** for theming — `:root` vars switched via `[data-theme="dark"]` / `[data-theme="light"]`
+- **Gradients:** Primary (`#6C63FF → #3B82F6 → #06B6D4`), Accent (`#EC4899 → #6C63FF`)
+- **Fonts:** Space Grotesk (headings), Inter (body) — both from Google Fonts
+- **Glassmorphism:** `backdrop-filter: blur()` on navbar, status card, project overlays
+- **Animations:** `fade-in` class for scroll-triggered reveals (IntersectionObserver), floating orbs, pulse glow
+- **Custom cursor** on desktop (dot + trailing ring)
+- **Responsive:** Mobile-first breakpoints at 1024px, 768px, 480px
+
+## Key Features
+
+- **Theme toggle** — Dark/Light with localStorage persistence
+- **Project filter** — Tab-based filtering (All / Hackathons / Companies / Clients)
+- **Scroll animations** — Elements fade up on scroll via IntersectionObserver
+- **Active nav tracking** — Highlights current section in navbar on scroll
+- **Navbar auto-hide** — Hides on scroll down, shows on scroll up
+- **Parallax** — Subtle parallax on hero background grid and orb
 
 ## Deployment
 
-Vercel or Netlify. Both auto-detect static sites — connect repo, it just works.
+Vercel or Netlify — zero-config static hosting. Just connect the repo.
