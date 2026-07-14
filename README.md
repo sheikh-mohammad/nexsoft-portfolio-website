@@ -18,7 +18,7 @@ Vanilla HTML5, CSS3, JavaScript (ES6+) — no frameworks, no build tools.
 
 ## Live Demo
 
-[sm-ahmed-portfolio.netlify.app](https://sm-ahmed-portfolio.netlify.app)
+
 
 ## Sections
 
