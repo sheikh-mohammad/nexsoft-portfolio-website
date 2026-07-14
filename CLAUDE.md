@@ -49,8 +49,9 @@ python -m http.server 8000
 ## Design System
 
 - **CSS Custom Properties** for theming — `:root` vars switched via `[data-theme="dark"]` / `[data-theme="light"]`
-- **Gradients:** Primary (`#6C63FF → #3B82F6 → #06B6D4`), Accent (`#EC4899 → #6C63FF`)
-- **Fonts:** Space Grotesk (headings), Inter (body) — both from Google Fonts
+- **Gradients:** Inspired by profile photo (warm earth tones). Primary: `#D4A373 → #9D4E4E` (gold → burgundy), Accent: `#E8C4A0 → #C4845D` (cream → terracotta)
+- **Fonts:** Literata (headings — elegant serif, premium editorial feel) + Nunito (body — rounded, smooth, no sharp edges).
+  - These are chosen to avoid overused AI-slob fonts (no Inter, Poppins, Space Grotesk, etc.)
 - **Glassmorphism:** `backdrop-filter: blur()` on navbar, status card, project overlays
 - **Animations:** `fade-in` class for scroll-triggered reveals (IntersectionObserver), floating orbs, pulse glow
 - **Custom cursor** on desktop (dot + trailing ring)
